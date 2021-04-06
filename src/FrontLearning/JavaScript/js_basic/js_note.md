@@ -1,104 +1,107 @@
-﻿js输出
-    document.write   向body中写字符串
-    console.log      向控制台输出
-    alert            弹出警告框输出
-js编写位置
-    1.外联文件
+﻿# js基础
+
+## js输出
+​    document.write   向body中写字符串
+​    console.log      向控制台输出
+​    alert            弹出警告框输出
+## js编写位置
+​    1.外联文件
+
         <script src="引入的文件位置"></script>
-    2.内联文件
-        <script type="text/javascript">
-            js代码编写的位置
-        </script>
-    3.内嵌代码(结构与行为耦合，不使用)
-        <input type="button" onclick="alert('弹出')"></input>
-        <a href="javascript:alert('弹出');"></a>
-js基本语法
-    严格区分大小写
-    语句分号结尾
-    没有添加分号时浏览器自动添加，但是消耗资源并且可能添加出错
-js字面量和变量
-    字面量即为常量
-    变量可被字面量赋值
-    变量声明和赋值可分开或一起
-        var a;
-        a = 1;
-    或者
-        var a = 1;
-js标识符
-    所有可以自定义的变量都叫做标识符，并且遵循以下规范：
-        1.只能以字母数字，下划线，$构成
-        2.不能以数字开头
-        3.不能使用ES的关键字和保留字
-        4.一般使用驼峰命名法
-    标识符以unicode编码表示，因此可以使用UTF-8的所有内容，但是一般只使用英文
-js基本数据类型
-    1.string
-    2.number
-        可以表示整数与浮点数
-        2进制浮点数以分数表示，不准确
-        NaN与Infinity是数值的字面量，表示非数与无穷
-        typeof 参数  检测某个值的类型
-    3.boolean
-        只有两个值：true  false
-    4.null
-        表示一个空对象
-        var a = null;
-        console.log(typeof a);
-        结果为object
-    5.undefined
-        已经声明的变量未赋值则成为undefined
-        var a;
-        console.log(typeof a);
-        结果为undefined
-强制类型转换
-    1.string
-        两种办法：a.toString()   String()
-            toString只能用于对象，因此null和undefined无法调用
-            String()对于Number, String, Boolean来说会调用底层的toString()方法，对于null和undefined会直接进行转换
-    2.number
-        三种方法：Number(), parseInt(), parseFloat()
-            Number()：
-                对于字符串来说如果只包含数字，直接转换成数字，如果包含非数字转换成NaN，如果是""或者"  "则转换成0
-                对于boolean值，true转换成1，false转换成0
-                对于null，转换成0
-                对于undefined，转换成NaN
-            parseInt()：
-                首先将所有内容转换成字符串再开始解析。
-                从左到右依次解析，需要非整数直接舍去，第一位非整数返回NaN
-            parseFloat()：
-                与parseInt()相似，只是遇到第一位小数点不会忽略会转换成小数，其余与之相同
-    3.boolean
-        一种方法：Boolean()
-            对于数字：只有0跟NaN会转换成false
-            对于字符串：只有""会转换成false
-            对于null和undefined，只会转换成false
-进制
-    16进制在数字前加0x
-    8进制在数字前加0
-        在某些浏览器中键入以下代码：
-            var a = "070";
-            console.log(parseInt(a));
-        结果会输出56。因为浏览器将其当做8进制，解决方法是输入第二个参数，强制以10进制输出
-            parseInt(a, 10);
-    2进制在数字前加0b
-        某些浏览器无法解析2进制如IE浏览器，同时也不常用
-运算符
-    运算符有以下种类：typeof，+，-，*，/，%，所有的运算符都不改变原始变量而是返回进行运算后的结果,并且NaN与任何值进行运算结果都为NaN
-        typeof:
-            typeof返回一个变量或者字面量的类型，返回值为string
-            var a = typeof 2;
-            console.log(a);
-            console.log(typeof a);
-            结果为：number与string
-        +：
-            数字的加法运算
-            遇到非number的值，会将其转换成number
-            遇到string的值，会转换成string然后进行接串操作，可应用于长字符串的换行与隐性string类型转换
-        其余运算符进行相应数学运算并且在遇到非number值时，会全部转换成number值后再进行运算操作，此特性可用于隐式number类型转换，但还有更简单的方法
-            var a = "123";
-            console.log(a / 1);
-            console.log(typeof (a / 1));
-            结果为123和number类型
+​    2.内联文件
+​        <script type="text/javascript">
+​            js代码编写的位置
+​        </script>
+​    3.内嵌代码(结构与行为耦合，不使用)
+​        <input type="button" onclick="alert('弹出')"></input>
+​        <a href="javascript:alert('弹出');"></a>
+## js基本语法
+​    严格区分大小写
+​    语句分号结尾
+​    没有添加分号时浏览器自动添加，但是消耗资源并且可能添加出错
+## js字面量和变量
+​    字面量即为常量
+​    变量可被字面量赋值
+​    变量声明和赋值可分开或一起
+​        var a;
+​        a = 1;
+​    或者
+​        var a = 1;
+## js标识符
+​    所有可以自定义的变量都叫做标识符，并且遵循以下规范：
+​        1.只能以字母数字，下划线，$构成
+​        2.不能以数字开头
+​        3.不能使用ES的关键字和保留字
+​        4.一般使用驼峰命名法
+​    标识符以unicode编码表示，因此可以使用UTF-8的所有内容，但是一般只使用英文
+## js基本数据类型
+​    1.string
+​    2.number
+​        可以表示整数与浮点数
+​        2进制浮点数以分数表示，不准确
+​        NaN与Infinity是数值的字面量，表示非数与无穷
+​        typeof 参数  检测某个值的类型
+​    3.boolean
+​        只有两个值：true  false
+​    4.null
+​        表示一个空对象
+​        var a = null;
+​        console.log(typeof a);
+​        结果为object
+​    5.undefined
+​        已经声明的变量未赋值则成为undefined
+​        var a;
+​        console.log(typeof a);
+​        结果为undefined
+## 强制类型转换
+​    1.string
+​        两种办法：a.toString()   String()
+​            toString只能用于对象，因此null和undefined无法调用
+​            String()对于Number, String, Boolean来说会调用底层的toString()方法，对于null和undefined会直接进行转换
+​    2.number
+​        三种方法：Number(), parseInt(), parseFloat()
+​            Number()：
+​                对于字符串来说如果只包含数字，直接转换成数字，如果包含非数字转换成NaN，如果是""或者"  "则转换成0
+​                对于boolean值，true转换成1，false转换成0
+​                对于null，转换成0
+​                对于undefined，转换成NaN
+​            parseInt()：
+​                首先将所有内容转换成字符串再开始解析。
+​                从左到右依次解析，需要非整数直接舍去，第一位非整数返回NaN
+​            parseFloat()：
+​                与parseInt()相似，只是遇到第一位小数点不会忽略会转换成小数，其余与之相同
+​    3.boolean
+​        一种方法：Boolean()
+​            对于数字：只有0跟NaN会转换成false
+​            对于字符串：只有""会转换成false
+​            对于null和undefined，只会转换成false
+## 进制
+​    16进制在数字前加0x
+​    8进制在数字前加0
+​        在某些浏览器中键入以下代码：
+​            var a = "070";
+​            console.log(parseInt(a));
+​        结果会输出56。因为浏览器将其当做8进制，解决方法是输入第二个参数，强制以10进制输出
+​            parseInt(a, 10);
+​    2进制在数字前加0b
+​        某些浏览器无法解析2进制如IE浏览器，同时也不常用
+## 运算符
+​    运算符有以下种类：typeof，+，-，*，/，%，所有的运算符都不改变原始变量而是返回进行运算后的结果,并且NaN与任何值进行运算结果都为NaN
+​        typeof:
+​            typeof返回一个变量或者字面量的类型，返回值为string
+​            var a = typeof 2;
+​            console.log(a);
+​            console.log(typeof a);
+​            结果为：number与string
+​        +：
+​            数字的加法运算
+​            遇到非number的值，会将其转换成number
+​            遇到string的值，会转换成string然后进行接串操作，可应用于长字符串的换行与隐性string类型转换
+​        其余运算符进行相应数学运算并且在遇到非number值时，会全部转换成number值后再进行运算操作，此特性可用于隐式number类型转换，但还有更简单的方法
+​            var a = "123";
+​            console.log(a / 1);
+​            console.log(typeof (a / 1));
+​            结果为123和number类型
 
 一元运算符
     正号+和负号-
@@ -111,183 +114,183 @@ js基本数据类型
     ++
         分为前++(++a)和后++(a++)，对于a值来说都是增加1，但是表达式的返回值不同，前++返回新值，后++返回原值
     --
-        特性与自增相同，只是对于a值来说是减少1
+​        特性与自增相同，只是对于a值来说是减少1
 逻辑运算符
-    包括!, &&, ||三种运算符
-        !：两次取非会得到原值的布尔值，可以利用这个特性进行隐式布尔值转换
-            var a = "123";
-            console.log("a = " + !!a);
-            结果为true，与Boolean(a)相同
-        &&：两个值都为true结果才为true
-        ||：两个值都为false结果才为false
-    在JS中&&与||都是属于短路操作，即当一个值满足要求时才会继续执行第二个操作，第一个值不满足要求时不执行第二个操作
-    当参数不是boolean值时先会将参数转换成boolean值后再按照以上规则输出原值
-        &&：
-            当第一个值为true时，返回第二个值
-            当第一个值为false时，返回第一个值
-            console.log("123" && "456");
-            结果为"456"
-            console.log(NaN && "111");
-            结果为NaN
-        ||：
-            当第一个值为false时，返回第二个值
-            当第一个值为true时，返回第一个值
-            console.log(NaN || "111");
-            结果为"111"
-            console.log("123" || "456");
-            结果为"123"
+​    包括!, &&, ||三种运算符
+​        !：两次取非会得到原值的布尔值，可以利用这个特性进行隐式布尔值转换
+​            var a = "123";
+​            console.log("a = " + !!a);
+​            结果为true，与Boolean(a)相同
+​        &&：两个值都为true结果才为true
+​        ||：两个值都为false结果才为false
+​    在JS中&&与||都是属于短路操作，即当一个值满足要求时才会继续执行第二个操作，第一个值不满足要求时不执行第二个操作
+​    当参数不是boolean值时先会将参数转换成boolean值后再按照以上规则输出原值
+​        &&：
+​            当第一个值为true时，返回第二个值
+​            当第一个值为false时，返回第一个值
+​            console.log("123" && "456");
+​            结果为"456"
+​            console.log(NaN && "111");
+​            结果为NaN
+​        ||：
+​            当第一个值为false时，返回第二个值
+​            当第一个值为true时，返回第一个值
+​            console.log(NaN || "111");
+​            结果为"111"
+​            console.log("123" || "456");
+​            结果为"123"
 赋值运算符
-    有以下几种：=, +=, -=, /=, *=
-    var a += 3;
-    var a = a + 3;
-    两者等价，对于其他的赋值运算符，与+=规则相同
+​    有以下几种：=, +=, -=, /=, *=
+​    var a += 3;
+​    var a = a + 3;
+​    两者等价，对于其他的赋值运算符，与+=规则相同
 关系运算符
-    有以下几种：<, >, <=, >=
-    有一方为number值时，将非number值转换成number值再进行比较
-    NaN与任何值进行任何比较结果都为false， 包括NaN本身
-        console.log(NaN >= NaN);
-        结果为false
-    当两方都为string时，按位比较字符编码，因此在两者都为string类型值为数字时进行比较，结果可能不符合预期，可应用于英文名字的排序
-        console.log("11" > "2");
-        结果为false
+​    有以下几种：<, >, <=, >=
+​    有一方为number值时，将非number值转换成number值再进行比较
+​    NaN与任何值进行任何比较结果都为false， 包括NaN本身
+​        console.log(NaN >= NaN);
+​        结果为false
+​    当两方都为string时，按位比较字符编码，因此在两者都为string类型值为数字时进行比较，结果可能不符合预期，可应用于英文名字的排序
+​        console.log("11" > "2");
+​        结果为false
 unicode编码
-    在js中使用时在编码前加\u对编码进行转义输出
-        console.log("\u0031");
-        结果为1，编码为16进制
-    在HTML中使用时以 &#编码; 的格式输出
-        &#0048;
-        结果为1，编码为10进制
+​    在js中使用时在编码前加\u对编码进行转义输出
+​        console.log("\u0031");
+​        结果为1，编码为16进制
+​    在HTML中使用时以 &#编码; 的格式输出
+​        &#0048;
+​        结果为1，编码为10进制
 相等运算符
-    包括==, !=, ===, !==
-    ==, !=
-        两者类型相同时判断是否相等，类型不同时进行类型转换再判断是否相等，转换成哪种类型无法确定
-        由于undefined衍生于null，因此两者相等
-            console.log(undefined == null);
-            结果为true
-        NaN与任何值进行运算结果都为false，包括自己
-            console.log(NaN == NaN);
-            结果为false
-    ===, !==
-        除不进行类型转换外，规则与==, !==类似
-        当两者类型不同时，===直接返回false，!==直接返回true
-        NaN的规则在此处同样适用
-            console.log(NaN === NaN);
-            结果为false
-        undefined与null在这种运算符下，才会不相等
-            console.log(undefined === null);
-            结果为false
+​    包括==, !=, ===, !==
+​    ==, !=
+​        两者类型相同时判断是否相等，类型不同时进行类型转换再判断是否相等，转换成哪种类型无法确定
+​        由于undefined衍生于null，因此两者相等
+​            console.log(undefined == null);
+​            结果为true
+​        NaN与任何值进行运算结果都为false，包括自己
+​            console.log(NaN == NaN);
+​            结果为false
+​    ===, !==
+​        除不进行类型转换外，规则与==, !==类似
+​        当两者类型不同时，===直接返回false，!==直接返回true
+​        NaN的规则在此处同样适用
+​            console.log(NaN === NaN);
+​            结果为false
+​        undefined与null在这种运算符下，才会不相等
+​            console.log(undefined === null);
+​            结果为false
 三元运算符
-    语法格式为(表达式)?(语句1):(语句2);
-        当表达式结果为true时执行语句1，否则执行语句2
-        当表达式结果为非boolean值时，会转换成boolean值后再对表达式进行判断
+​    语法格式为(表达式)?(语句1):(语句2);
+​        当表达式结果为true时执行语句1，否则执行语句2
+​        当表达式结果为非boolean值时，会转换成boolean值后再对表达式进行判断
 逗号运算符
-    用来分割不同语句，可以同时声明多个变量
+​    用来分割不同语句，可以同时声明多个变量
 运算符优先级
-    按照优先级表进行先后运算，可以使用()改变优先级
+​    按照优先级表进行先后运算，可以使用()改变优先级
 代码块
-    将多个语句用{}包含起来，这一堆语句称为代码块，它只具有分组的作用，没有其他用途
-        {
-            var a = 1;
-            console.log("a");
-        }
-            console.log("a");
-        结果为1 /n 1
+​    将多个语句用{}包含起来，这一堆语句称为代码块，它只具有分组的作用，没有其他用途
+​        {
+​            var a = 1;
+​            console.log("a");
+​        }
+​            console.log("a");
+​        结果为1 /n 1
 条件判断语句
-    语法1：满足条件只执行紧接着的第一条语句，后面语句与判断语句无关
-        if(表达式)
-            语句1;
-    语法2：满足条件执行代码块中的代码，代码块外的代码与判断语句无关
-        if(表达式){
-            语句1;
-            语句2;
-        } 
-    语法3：满足条件执行前一个代码块中的代码，否则执行后一个代码块中的代码
-        if(表达式){
-            语句...
-        }else{
-            语句...
-        }
-    语法4：从上到下依次判断，当满足一个表达式后后面的代码不再执行
-        if(表达式){
-            语句...
-        }else if{
-            语句...
-        }else if{
-            语句...
-        }else if{
-            语句...
-        }else{
-            语句...
-        }
-    语法5：条件判断语句可以嵌套
-        if(表达式){
-            语句...
-        }else{
-            语句...
-            if(表达式){
-                语句...
-            }
-        }
+​    语法1：满足条件只执行紧接着的第一条语句，后面语句与判断语句无关
+​        if(表达式)
+​            语句1;
+​    语法2：满足条件执行代码块中的代码，代码块外的代码与判断语句无关
+​        if(表达式){
+​            语句1;
+​            语句2;
+​        } 
+​    语法3：满足条件执行前一个代码块中的代码，否则执行后一个代码块中的代码
+​        if(表达式){
+​            语句...
+​        }else{
+​            语句...
+​        }
+​    语法4：从上到下依次判断，当满足一个表达式后后面的代码不再执行
+​        if(表达式){
+​            语句...
+​        }else if{
+​            语句...
+​        }else if{
+​            语句...
+​        }else if{
+​            语句...
+​        }else{
+​            语句...
+​        }
+​    语法5：条件判断语句可以嵌套
+​        if(表达式){
+​            语句...
+​        }else{
+​            语句...
+​            if(表达式){
+​                语句...
+​            }
+​        }
 条件分支语句
-    语法：
-        switch(表达式){
-            case 值1: 
-                语句...
-                break;
-            case 值2: 
-                语句...
-                break;
-            case 值3: 
-                语句...
-                break;
-            default:
-                语句...
-                break;
-        }
-    break;语句用来跳出switch语句，当没有此语句时，如果表达式的值满足某个case时，后面的语句都会执行
-        var a = 1;
-        switch(a){
-            case 1:
-                console.log("1");
-            case 2:
-                console.log("2");
-            default:
-                console.log("其他");
-        }
-        结果为1, 2, 其他
+​    语法：
+​        switch(表达式){
+​            case 值1: 
+​                语句...
+​                break;
+​            case 值2: 
+​                语句...
+​                break;
+​            case 值3: 
+​                语句...
+​                break;
+​            default:
+​                语句...
+​                break;
+​        }
+​    break;语句用来跳出switch语句，当没有此语句时，如果表达式的值满足某个case时，后面的语句都会执行
+​        var a = 1;
+​        switch(a){
+​            case 1:
+​                console.log("1");
+​            case 2:
+​                console.log("2");
+​            default:
+​                console.log("其他");
+​        }
+​        结果为1, 2, 其他
 while循环
-    while语句：
-        语法1：
-            while(true){    //1.将表达式写死
-                if(条件表达式){  //2.当满足某种条件时退出
-                    break;
-                }
-                语句...
-            }
-        语法2：
-            var i = 0;     //1.初始化变量
-            while(i < 10){  //2.当不满足条件时退出循环
-                语句...
-                i++;        //3.更新变量
-            }
-    do{}while()语句：
-        语法：
-            do{
-                语句...
-            }while(表达式)
-        与while语句的唯一不同是，while语句先对表达式进行判断，当不满足条件时不继续执行后面的代码块，而do{}while()语句是先执行do后面的代码块再判断表达式，不满足时不执行第二次
-            var i = 11;
-            while(i <= 10){
-                console.log(i);
-            }
-            结果为无
-            do{
-                console.log(i);
-            }while(i <= 10)
-            结果为11
+​    while语句：
+​        语法1：
+​            while(true){    //1.将表达式写死
+​                if(条件表达式){  //2.当满足某种条件时退出
+​                    break;
+​                }
+​                语句...
+​            }
+​        语法2：
+​            var i = 0;     //1.初始化变量
+​            while(i < 10){  //2.当不满足条件时退出循环
+​                语句...
+​                i++;        //3.更新变量
+​            }
+​    do{}while()语句：
+​        语法：
+​            do{
+​                语句...
+​            }while(表达式)
+​        与while语句的唯一不同是，while语句先对表达式进行判断，当不满足条件时不继续执行后面的代码块，而do{}while()语句是先执行do后面的代码块再判断表达式，不满足时不执行第二次
+​            var i = 11;
+​            while(i <= 10){
+​                console.log(i);
+​            }
+​            结果为无
+​            do{
+​                console.log(i);
+​            }while(i <= 10)
+​            结果为11
 for循环
-    语法：
-        for(初始化变量; 条件表达式; 更新变量){
+​    语法：
+​        for(初始化变量; 条件表达式; 更新变量){
 
         }
     作用与while循环相同，写法也可与while循环语法2相同，只要初始化变量与更新变量分别写在for循环外部与内部
@@ -297,7 +300,7 @@ for循环
         }
     当for循环表达式不写任何内容时则成为死循环
         for(;;){
-
+    
         }
 break和continue
     break; 用来跳出循环或者switch
@@ -692,10 +695,10 @@ this
             结果为name = "a"        //根据实际测试，结果与浏览器相关
         当将对象强制转换成数字时会首先调用valueOf方法，当此方法返回自己时再调用toString
         当对象强制转换成字符串时只调用toString方法
-垃圾回收
+## 垃圾回收
     当创建对象之后对所有这个对象的变量赋值为null时，这个对象就永远无法被操作，这个对象就称为垃圾
     js拥有自动的垃圾回收机制，不需要也不能手动地回收垃圾，能做的只有将不再使用的对象赋值为null
-数组
+##数组
     数组也是一个对象，与对象的区别在于数组只能通过索引来查找值，并且存储效率要比普通对象更高，所以具有所有对象具有的特性
     创建数组
         var arr = new Array();
@@ -821,251 +824,251 @@ this
             });
             console.log(arr);
             结果为2,3,5,6,34,767
-call和apply
-    函数对象都具有这两个方法，可以向这两个方法中的第一个参数传入一个对象用来修改这个方法的this对象
-    如果函数对象需要形参
-        call方法中第二个参数开始依次输入要传递给函数对象的实参
-        将需要传递的实参封装成一个数组作为apply的第二个参数将实参传递给函数对象
-    语法：
-        函数.call(对象[,参数1...]);
-        函数.apply(对象[,数组]);
-        var obj = {};
-        function a(a){
-            console.log("a = " + a);
-            console.log(this);
-        }
-        a(1);
-        a.call(obj, 1);
-        a.apply(obj, [1]);
-        结果为
-            window,1
-            object,1
-            object,1
+## call和apply
+​    函数对象都具有这两个方法，可以向这两个方法中的第一个参数传入一个对象用来修改这个方法的this对象
+​    如果函数对象需要形参
+​        call方法中第二个参数开始依次输入要传递给函数对象的实参
+​        将需要传递的实参封装成一个数组作为apply的第二个参数将实参传递给函数对象
+​    语法：
+​        函数.call(对象[,参数1...]);
+​        函数.apply(对象[,数组]);
+​        var obj = {};
+​        function a(a){
+​            console.log("a = " + a);
+​            console.log(this);
+​        }
+​        a(1);
+​        a.call(obj, 1);
+​        a.apply(obj, [1]);
+​        结果为
+​            window,1
+​            object,1
+​            object,1
 arguments
-    在调用函数时，浏览器还会隐式传递一个参数arguments，它是一个类数组对象，不是数组对象
-    使用索引来查询调用函数时传入的参数
-    拥有length属性来表示传入参数的数量
-    拥有callee属性表示当前指向的函数引用，可以用来编写递归函数
-        function a(){
-            console.log(arguments.length);
-            console.log(arguments[0]);
-            console.log(arguments[1]);
-            console.log(arguments.callee);
-        }
-        a(1,2);
-        结果为2,1,2,a函数本身
+​    在调用函数时，浏览器还会隐式传递一个参数arguments，它是一个类数组对象，不是数组对象
+​    使用索引来查询调用函数时传入的参数
+​    拥有length属性来表示传入参数的数量
+​    拥有callee属性表示当前指向的函数引用，可以用来编写递归函数
+​        function a(){
+​            console.log(arguments.length);
+​            console.log(arguments[0]);
+​            console.log(arguments[1]);
+​            console.log(arguments.callee);
+​        }
+​        a(1,2);
+​        结果为2,1,2,a函数本身
 global对象
-    ECMAScript中非常特别的对象，理论上存在但是又无法获取. 
-    不属于其他任何对象的属性或者对象都是这个对象的属性和方法
-    也就是说所有在全局作用域中定义的属性与对象可以说都是这个对象的属性和方法
-    ECMAScript没有指出如何访问global对象，但是浏览器会将这个对象当作window的一部分加以实现
-    常用方法：
-        1.encodeURL() 用来将整个url编码成浏览器能够识别的字符串，即将一些特殊字符进行编码，如：空格->%20，url中合法特殊字符不会被编码
-        2.encodeURLComponent() 用来将某一段url编码成浏览器能够识别的字符串，url中合法特殊字符也会被编码
-        3.decodeURL()   encodeURL的反向操作，规则与之相同
-        4.decodeURLComponent()  encodeURLComponent的反向操作，规则与之相同
+​    ECMAScript中非常特别的对象，理论上存在但是又无法获取. 
+​    不属于其他任何对象的属性或者对象都是这个对象的属性和方法
+​    也就是说所有在全局作用域中定义的属性与对象可以说都是这个对象的属性和方法
+​    ECMAScript没有指出如何访问global对象，但是浏览器会将这个对象当作window的一部分加以实现
+​    常用方法：
+​        1.encodeURL() 用来将整个url编码成浏览器能够识别的字符串，即将一些特殊字符进行编码，如：空格->%20，url中合法特殊字符不会被编码
+​        2.encodeURLComponent() 用来将某一段url编码成浏览器能够识别的字符串，url中合法特殊字符也会被编码
+​        3.decodeURL()   encodeURL的反向操作，规则与之相同
+​        4.decodeURLComponent()  encodeURLComponent的反向操作，规则与之相同
 Date对象
-    用来操作与时间有关的对象
-    var date = new Date();      //实例化Date对象的值就是执行这行代码时的时间
-    var date = new Date("12/11/2016 0:0:0");  //当输入参数时以参数对应的含义输出时间，按照mm/dd/yyyy h:m:s的格式输入
-    常用方法：
-        1.getDate() 获取时间的日
-        2.getDay()  获取时间的星期，值为0-6，从周日计算
-        3.getMonth() 获取时间的月份，值为0-11，从1月计算
-        4.getFullYear() 获取时间的年份
-        5.getTime() 获取时间的时间戳，为格林尼治标准时间1970/1/1 0:0:0开始到特定世界为止经过的毫秒
-    Date.now();     //执行这行代码时的时间戳，可用来计算一段代码的性能
+​    用来操作与时间有关的对象
+​    var date = new Date();      //实例化Date对象的值就是执行这行代码时的时间
+​    var date = new Date("12/11/2016 0:0:0");  //当输入参数时以参数对应的含义输出时间，按照mm/dd/yyyy h:m:s的格式输入
+​    常用方法：
+​        1.getDate() 获取时间的日
+​        2.getDay()  获取时间的星期，值为0-6，从周日计算
+​        3.getMonth() 获取时间的月份，值为0-11，从1月计算
+​        4.getFullYear() 获取时间的年份
+​        5.getTime() 获取时间的时间戳，为格林尼治标准时间1970/1/1 0:0:0开始到特定世界为止经过的毫秒
+​    Date.now();     //执行这行代码时的时间戳，可用来计算一段代码的性能
 Math对象
-    Math对象与其他内建对象不同，它不是构造函数而是一个工具类，不需要实例化，直接使用
-    语法：
-        Math.方法();
-    常用属性：
-        E 自然对数
-        PI 圆周率
-    常用方法：
-        1.ceil()
-            向上取整
-        2.floor()
-            向下取整
-        3.round()
-            四舍五入
-        4.random()
-            获取0-1之间的随机数
-            当想获取x-y之间的随机数时有公式Math.random()*(y-x)+x
-        5.max()
-            获取多个数中的最大值
-        6.min()
-            获取多个数中的最小值
-        7.sqrt()
-            对某个数开根号
-        8.pow(x, y)
-            求x的y次幂
+​    Math对象与其他内建对象不同，它不是构造函数而是一个工具类，不需要实例化，直接使用
+​    语法：
+​        Math.方法();
+​    常用属性：
+​        E 自然对数
+​        PI 圆周率
+​    常用方法：
+​        1.ceil()
+​            向上取整
+​        2.floor()
+​            向下取整
+​        3.round()
+​            四舍五入
+​        4.random()
+​            获取0-1之间的随机数
+​            当想获取x-y之间的随机数时有公式Math.random()*(y-x)+x
+​        5.max()
+​            获取多个数中的最大值
+​        6.min()
+​            获取多个数中的最小值
+​        7.sqrt()
+​            对某个数开根号
+​        8.pow(x, y)
+​            求x的y次幂
 包装类
-    js提供了3个包装类将3种基本数据类型转换成基本数据类型对象，但是在日常开发中不要使用这种方式，因为在转换后进行比较时会产生预期外的结果
-        1.String
-            将基本数据类型string转换成string对象
-            var str = new String("a");
-            console.log(typeof str);
-            结果为object
-        2.Number
-            将基本数据类型number转换成number对象
-            var num = new Number(1);
-            console.log(typeof num);
-            结果为object
-        3.Boolean
-            将基本数据类型boolean转换成boolean对象
-            var bool = new Boolean(true);
-            console.log(typeof bool);
-            结果为object
-    当对这三种基本数据类型操作包装类中的方法或者属性时，浏览器会临时创建一个基本数据类型对象再调用这些方法，然后再将其转换成基本数据类型
-        var a = 1;
-        a.toString();
-        console.log(typeof a);
-        结果为string
-        //执行这两行代码时不会报错，因为实际在对临时创建的基本数据类型对象进行属性赋值操作，语句执行完毕后临时对象就被销毁，因此第二次执行时结果为undefined
-        a.name = "a";
-        console.log(a.name);
-        结果为undefined     
+​    js提供了3个包装类将3种基本数据类型转换成基本数据类型对象，但是在日常开发中不要使用这种方式，因为在转换后进行比较时会产生预期外的结果
+​        1.String
+​            将基本数据类型string转换成string对象
+​            var str = new String("a");
+​            console.log(typeof str);
+​            结果为object
+​        2.Number
+​            将基本数据类型number转换成number对象
+​            var num = new Number(1);
+​            console.log(typeof num);
+​            结果为object
+​        3.Boolean
+​            将基本数据类型boolean转换成boolean对象
+​            var bool = new Boolean(true);
+​            console.log(typeof bool);
+​            结果为object
+​    当对这三种基本数据类型操作包装类中的方法或者属性时，浏览器会临时创建一个基本数据类型对象再调用这些方法，然后再将其转换成基本数据类型
+​        var a = 1;
+​        a.toString();
+​        console.log(typeof a);
+​        结果为string
+​        //执行这两行代码时不会报错，因为实际在对临时创建的基本数据类型对象进行属性赋值操作，语句执行完毕后临时对象就被销毁，因此第二次执行时结果为undefined
+​        a.name = "a";
+​        console.log(a.name);
+​        结果为undefined     
 String对象
-    string的底层是用字符数组进行表示的，因此许多数组可以使用的方法在字符串中同样可以使用
-        var str = "abcdef";
-        console.log(str[0]);
-        结果为"a"
-    常用属性:
-        length
-            表示字符串的长度
-    常用方法：（全都不改变原字符串）
-        1.charAt()
-            返回指定位置的字符，与用索引表示相同
-        2.charCodeAt()
-            返回指定位置的字符unicode编码
-        3.fromCharCode()
-            返回指定unicode编码对应的字符
-        4.concat()
-            连接多个字符串，与使用加号+连接字符串相同
-        5.indexOf()
-            返回指定字符在字符串中第一次出现的索引，当没有时返回-1
-            参数：
-                第一个参数：需要查找的字符
-                第二个参数：从第几个索引开始进行查找
-        6.lastIndexOf()
-            与indexOf相似，但是它返回的是字符在字符串中最后一次出现的索引，没有时返回-1
-            参数：
-                第一个参数：需要查找的字符
-                第二个参数：从第几个索引开始进行查找
-        7.toUpperCase()
-            将所有字符转化成大写
-        8.toLowerCase()
-            将所有字符转化成大写
-        9.slice()
-            截取指定范围内的字符串，与数组中的slice相似
-            参数：
-                第一个参数：索引开始处，包括这个索引
-                第二个参数：索引结束处，不包括这个索引
-            参数可以是负数，当为负数时从字符串后往前数
-            不输入第二个参数时，截取第一个参数开始至后面全部的字符串
-                var str = "abcdef";
-                var result = str.slice(0,-2);
-                console.log(result);
-            结果为"abcd"
-        10.subString()
-            与slice相似，不同在于参数为负数时默认输入是0，当第一个参数大于第二个参数时会交换两个参数的位置
-                var str = "abcdef";
-                var result = str.subString(1, -3);
-                结果为"a"
-        11.subStr()
-            同样为截取一段字符串，与前两个方法的区别在于参数不同，这个方法不是ES标准，不推荐使用
-                参数：
-                第一个参数：索引开始处，包括这个索引
-                第二个参数：需要截取的字符数量
-        12.split()
-            与数组的join方法相反。将字符串以特定方式转换成数组
-                参数：
-                第一个参数：将字符串以哪个字符进行拆分充当新数组的元素
-                    var str = "abtcdtef";
-                    var result = str.split("t");
-                    console.log(result);
-                    结果为ab,cd,ef
-                当参数为空串时，将每个字符都拆分成一个元素存入新数组
-                第二个参数：决定返回的数组长度
-    正则运算相关的方法：
+​    string的底层是用字符数组进行表示的，因此许多数组可以使用的方法在字符串中同样可以使用
+​        var str = "abcdef";
+​        console.log(str[0]);
+​        结果为"a"
+​    常用属性:
+​        length
+​            表示字符串的长度
+​    常用方法：（全都不改变原字符串）
+​        1.charAt()
+​            返回指定位置的字符，与用索引表示相同
+​        2.charCodeAt()
+​            返回指定位置的字符unicode编码
+​        3.fromCharCode()
+​            返回指定unicode编码对应的字符
+​        4.concat()
+​            连接多个字符串，与使用加号+连接字符串相同
+​        5.indexOf()
+​            返回指定字符在字符串中第一次出现的索引，当没有时返回-1
+​            参数：
+​                第一个参数：需要查找的字符
+​                第二个参数：从第几个索引开始进行查找
+​        6.lastIndexOf()
+​            与indexOf相似，但是它返回的是字符在字符串中最后一次出现的索引，没有时返回-1
+​            参数：
+​                第一个参数：需要查找的字符
+​                第二个参数：从第几个索引开始进行查找
+​        7.toUpperCase()
+​            将所有字符转化成大写
+​        8.toLowerCase()
+​            将所有字符转化成大写
+​        9.slice()
+​            截取指定范围内的字符串，与数组中的slice相似
+​            参数：
+​                第一个参数：索引开始处，包括这个索引
+​                第二个参数：索引结束处，不包括这个索引
+​            参数可以是负数，当为负数时从字符串后往前数
+​            不输入第二个参数时，截取第一个参数开始至后面全部的字符串
+​                var str = "abcdef";
+​                var result = str.slice(0,-2);
+​                console.log(result);
+​            结果为"abcd"
+​        10.subString()
+​            与slice相似，不同在于参数为负数时默认输入是0，当第一个参数大于第二个参数时会交换两个参数的位置
+​                var str = "abcdef";
+​                var result = str.subString(1, -3);
+​                结果为"a"
+​        11.subStr()
+​            同样为截取一段字符串，与前两个方法的区别在于参数不同，这个方法不是ES标准，不推荐使用
+​                参数：
+​                第一个参数：索引开始处，包括这个索引
+​                第二个参数：需要截取的字符数量
+​        12.split()
+​            与数组的join方法相反。将字符串以特定方式转换成数组
+​                参数：
+​                第一个参数：将字符串以哪个字符进行拆分充当新数组的元素
+​                    var str = "abtcdtef";
+​                    var result = str.split("t");
+​                    console.log(result);
+​                    结果为ab,cd,ef
+​                当参数为空串时，将每个字符都拆分成一个元素存入新数组
+​                第二个参数：决定返回的数组长度
+​    正则运算相关的方法：
 正则表达式对象
-    用来匹配字符串是否满足要求       
-    语法：
-        var reg = new RegExp("正则表达式", "匹配模式");
-        匹配模式可以是
-        "i" ----忽略大小写
-        "g" ----全局匹配
-    方法：    
-        1.test()
-            测试指定字符串是否满足正则的匹配要求，满足返回true，否则返回false
-    正则表达式字面量
-        语法：
-            var reg = /正则表达式/匹配模式;
-        使用字面量更方便，使用构造函数更灵活，因为可以使用变量
-    正则表达式语法：
-        1.|
-            表示或 
-            /a|b/.test("ac"); //true
-        2.[]
-            与|含义相同
-            /[ab]/.test("bc"); //true
-        3.[^]   //忽略，有误
-            是否含有除了中括号外的内容
-            /^ab/.test("ab");  //false
+​    用来匹配字符串是否满足要求       
+​    语法：
+​        var reg = new RegExp("正则表达式", "匹配模式");
+​        匹配模式可以是
+​        "i" ----忽略大小写
+​        "g" ----全局匹配
+​    方法：    
+​        1.test()
+​            测试指定字符串是否满足正则的匹配要求，满足返回true，否则返回false
+​    正则表达式字面量
+​        语法：
+​            var reg = /正则表达式/匹配模式;
+​        使用字面量更方便，使用构造函数更灵活，因为可以使用变量
+​    正则表达式语法：
+​        1.|
+​            表示或 
+​            /a|b/.test("ac"); //true
+​        2.[]
+​            与|含义相同
+​            /[ab]/.test("bc"); //true
+​        3.[^]   //忽略，有误
+​            是否含有除了中括号外的内容
+​            /^ab/.test("ab");  //false
         4. .
             表示任意字符
-        5.\
+                5.\
             表示转义，将特殊符号转化成字符
-        6.*
+                6.*
             表示0个或多个字符
-        7.+
+                7.+
             表示1个或多个字符
-        8.^
+                8.^
             表示开头的某个字符
-        9.$
+                9.$
             表示结尾的某个字符
-        10.\w
+                10.\w
             表示任意字母数字_
-        11.\W
+                11.\W
             除了任意字母数字_
-        12.\d
+                12.\d
             表示任意数字
-        13.\D
+                13.\D
             除了任意数字
-        14.\s
+                14.\s
             表示空格
-        15.\S
+                15.\S
             除了空格
-        16.\b
+                16.\b
             表示单词分隔符
-        17.\B
+                17.\B
             除了单词分隔符
-        18.{}
+                18.{}
             限制字符出现的次数
             /^a{3,5}$/.test("aaaaaa");    //false
-        19.()
+                19.()
             将几个字符当做整体
             /^(ab){2,3}$/.test("abababab"); //false
-        常用语法：
+                常用语法：
             [a-z]   小写字母
             [A-Z]   大写字母
             [A-z]   英文字母
             [0-9]   数字
-    可以使用正则的字符串方法：
-        1.split()
+        可以使用正则的字符串方法：
+                1.split()
             将字符串以正则表达式作为间断符号拆分成数组
                 var str = "1a2s3d4f5g6h7jk8";
                 console.log(str.split(/[1-9]/));
                 结果为a,s,d,f,g,h,jk
             正则不设置匹配模式为g也会全局拆分
-        2.search()
+                2.search()
             查询正则表达式中的字符位置，不存在则返回-1，与indexOf相似
                 var str = "1a2s3d4f5g6h7jk8";
                 console.log(str.search(/[a-z]/));
                 结果为0
             正则设置匹配模式为g也不会全局匹配
-        3.match()
+                3.match()
             返回满足正则表达式匹配的字符
                 var str = "1a2s3d4f5g6h7jk8";
                 console.log(str.match(/[a-z]/));
@@ -1073,7 +1076,7 @@ String对象
             如果需要返回全局匹配的结果需要设置匹配模式为g，返回为数组
                 console.log(str.match(/[a-z]/g));
                 结果为a,s,d,f,g,h,j,k
-        4.replace()
+                4.replace()
             将正则表达式匹配到的字符串用新字符串代替
             参数：
                 第一个参数：需要被替换的原字符串，可以用正则表达式
@@ -1084,24 +1087,24 @@ String对象
             如果需要返回全局匹配的结果需要设置匹配模式为g
                 console.log(str.replace(/[a-z]/g, "!"));
                 结果为"1!2!3!4!5!6!7!!8"
-DOM简介
-    DOM全称document object model
-    文档
-        整个HTML文件就是一个文档
-    对象
-        HTML文件中的每个节点都在JS中是一个对象
-    模型
-        JS使用模型来表示各个对象之间的关系
-    JS中有宿主对象document，它是window对象的属性，也就是文档对象本身
-    DOM中的对象又称为节点对象，共有4种节点分别为：
-        每个节点中都拥有三个属性分别是:
-                    nodeName      nodeType     nodeValue
-        文档节点    #document       9               null
+## DOM简介
+​    DOM全称document object model
+​    文档
+​        整个HTML文件就是一个文档
+​    对象
+​        HTML文件中的每个节点都在JS中是一个对象
+​    模型
+​        JS使用模型来表示各个对象之间的关系
+​    JS中有宿主对象document，它是window对象的属性，也就是文档对象本身
+​    DOM中的对象又称为节点对象，共有4种节点分别为：
+​        每个节点中都拥有三个属性分别是:
+​                    nodeName      nodeType     nodeValue
+​        文档节点    #document       9               null
 
         元素节点     标签名          1               null
-
+    
         属性节点      属性名         2               属性值
-
+    
         文本节点      #text         3               文本内容
     常用属性：
         1.body
@@ -1561,7 +1564,7 @@ IE8及以下的文本范围
                 <div id="outer">
                     <div id="inner">
                         <div id="content">
-
+    
                         </div>
                     </div>
                 </div>
@@ -1875,7 +1878,7 @@ json
     自定义错误
         通过原型链继承可以自定义错误类型，只要继承自error的对象都会被浏览器当做错误对象处理
         当自定义错误时需要为新错误类型指定name与message
-JSON
+## JSON
     JSON.stringify
         第一个参数是一个JSON对象
         第二个参数是个过滤数组或者函数，函数的两个形参是key, value, 对于每个key，函数返回值就是最终键值对的值
